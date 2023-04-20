@@ -1,7 +1,7 @@
 [submodule "repositories/telemetry-airflow"]
 	path = repositories/telemetry-airflow
-	url = git@github.com:mozilla/telemetry-airflow.git
+	url = https://github.com/mozilla/telemetry-airflow.git
 	branch = fix/utils
 [submodule "repositories/bigquery-etl"]
 	path = repositories/bigquery-etl
-	url = git@github.com:mozilla/bigquery-etl.git
+	url = https://github.com/mozilla/bigquery-etl.git
