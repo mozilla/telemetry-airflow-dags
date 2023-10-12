@@ -4,3 +4,6 @@
 [submodule "telemetry-airflow"]
 	path = telemetry-airflow
 	url = https://github.com/mozilla/telemetry-airflow.git
+[submodule "private-bigquery-etl"]
+	path = private-bigquery-etl
+	url = https://github.com/mozilla/private-bigquery-etl.git
