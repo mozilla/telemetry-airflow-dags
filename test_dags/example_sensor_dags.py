@@ -37,7 +37,7 @@ with DAG(
             external_task_id=delay_python_task.task_id,
             allowed_states=["success"],
             failed_states=["failed", "upstream_failed", "skipped"],
-            deferrable=True,
+            mode="reschedule",
         )
         sensor_tasks.append(task)
 
