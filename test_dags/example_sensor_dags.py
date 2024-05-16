@@ -30,7 +30,7 @@ with DAG(
     tags=["example2"],
 ) as child_dag:
     sensor_tasks = []
-    for i in range(30):
+    for i in range(60):
         task = ExternalTaskSensor(
             task_id=f"child_task_{i}",
             external_dag_id=parent_dag.dag_id,
