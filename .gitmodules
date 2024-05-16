@@ -1,9 +1,9 @@
 [submodule "bigquery-etl"]
 	path = bigquery-etl
-	url = git@github.com:mozilla/bigquery-etl.git
+	url = git@github.com:mozilla/bigquery-etl
 [submodule "telemetry-airflow"]
 	path = telemetry-airflow
-	url = git@github.com:mozilla/telemetry-airflow.git
+	url = git@github.com:mozilla/telemetry-airflow
 [submodule "private-bigquery-etl"]
 	path = private-bigquery-etl
-	url = git@github.com:mozilla/private-bigquery-etl.git
+	url = git@github.com:mozilla/private-bigquery-etl
