@@ -21,6 +21,12 @@ with DAG(
     delay_python_task: PythonOperator = PythonOperator(task_id="delay_python_task",
                                                        python_callable=lambda: time.sleep(
                                                            300))
+    delay_python_task_2: PythonOperator = PythonOperator(task_id="delay_python_task_2",
+                                                       python_callable=lambda: time.sleep(
+                                                           300))
+
+    delay_python_task >> delay_python_task_2
+
 
 with DAG(
     dag_id="example_external_task_marker_child",
@@ -35,6 +41,28 @@ with DAG(
             task_id=f"child_task_{i}",
             external_dag_id=parent_dag.dag_id,
             external_task_id=delay_python_task.task_id,
+            allowed_states=["success"],
+            failed_states=["failed", "upstream_failed", "skipped"],
+            mode="reschedule",
+        )
+        sensor_tasks.append(task)
+
+    child_task_end = EmptyOperator(task_id="child_task_end")
+    sensor_tasks >> child_task_end
+
+with DAG(
+    dag_id="example_external_task_marker_child2",
+    start_date=start_date,
+    schedule="0 0 * * *",
+    catchup=False,
+    tags=["example2"],
+) as child_dag:
+    sensor_tasks = []
+    for i in range(60):
+        task = ExternalTaskSensor(
+            task_id=f"child_task_{i}",
+            external_dag_id=parent_dag.dag_id,
+            external_task_id=delay_python_task_2.task_id,
             allowed_states=["success"],
             failed_states=["failed", "upstream_failed", "skipped"],
             mode="reschedule",
