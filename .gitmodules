@@ -1,6 +1,7 @@
-[submodule "bigquery-etl"]
+[submodule "private-bigquery-etl-dags"]
 	path = bigquery-etl
-	url = git@github.com:mozilla/bigquery-etl.git
+	url = git@github.com:mozilla/private-bigquery-etl.git
+	branch = generated-dags
 [submodule "telemetry-airflow"]
 	path = telemetry-airflow
 	url = git@github.com:mozilla/telemetry-airflow.git
